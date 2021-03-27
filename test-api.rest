@@ -1,0 +1,23 @@
+GET http://localhost:3000/api/v1/tours/8
+
+###
+POST http://localhost:3000/api/v1/tours
+Content-Type: application/json
+
+{
+    "name": "test",
+    "duration": 10,
+    "difficulty": "easy"
+}
+
+###
+PATCH  http://localhost:3000/api/v1/tours/10
+Content-Type: application/json
+
+{
+    "name": "test100",
+    "difficulty": "easy"
+}
+
+###
+DELETE  http://localhost:3000/api/v1/tours/10
