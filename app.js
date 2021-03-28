@@ -8,7 +8,6 @@ const toursRoutes = require('./routes/tourRoutes');
 const usersRoutes = require('./routes/userRoutes');
 
 const app = express();
-const port = 3000;
 
 //NOTE: Middlewares
 
@@ -23,11 +22,7 @@ app.use('/api/v1/tours', toursRoutes);
 
 app.use('/api/v1/users', usersRoutes);
 
-//NOTE: Server Start
-
-app.listen(port, () => {
-  console.log(`app is listening on port ${port}`);
-});
+module.exports = app
 
 //NOTE: Routes
 

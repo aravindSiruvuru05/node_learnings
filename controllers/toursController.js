@@ -6,6 +6,17 @@ const tours = JSON.parse(
 
 //NOTE: Route Handlers Or Controllers
 
+exports.checkID = (req, res, next, val) =>{
+    const tour = tours.find((t) => t.id === val * 1);
+    console.log(tours)
+    if (!tour)
+      return res.status(404).json({
+        status: 'failed',
+        message: 'Invalid Id',
+      });
+    next()
+}
+
 exports.getAllTours = (req, res) => {
   res.status(200).json({
     status: 'success',
@@ -20,12 +31,6 @@ exports.getAllTours = (req, res) => {
 exports.getTour = (req, res) => {
   const id = req.params.id * 1;
   const tour = tours.find((t) => t.id === id);
-
-  if (!tour)
-    return res.status(404).json({
-      status: 'failed',
-      message: 'Invalid Id',
-    });
 
   res.status(200).json({
     status: 'success',
@@ -53,12 +58,7 @@ exports.createTour = (req, res) => {
 
 exports.updateTour = (req, res) => {
   const id = req.params.id * 1;
-  const tour = tours.find((t) => t.id === id);
-  if (!tour)
-    return res.status(404).json({
-      status: 'failed',
-      message: 'Invalid Id',
-    });
+ 
   let modifiedTour;
   const newTours = tours.map((t) => {
     if (t.id === id) {
@@ -84,12 +84,6 @@ exports.updateTour = (req, res) => {
 
 exports.deleteTour = (req, res) => {
   const id = req.params.id * 1;
-  const tour = tours.find((t) => t.id === id);
-  if (!tour)
-    return res.status(404).json({
-      status: 'failed',
-      message: 'Invalid Id',
-    });
   const newTours = tours.filter((t) => t.id !== id);
 
   fs.writeFile(

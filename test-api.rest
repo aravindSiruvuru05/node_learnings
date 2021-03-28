@@ -7,11 +7,11 @@ Content-Type: application/json
 {
     "name": "test",
     "duration": 10,
-    "difficulty": "easy"
+    "difficulty": "easdy"
 }
 
 ###
-PATCH  http://localhost:3000/api/v1/tours/9
+PATCH  http://localhost:3000/api/v1/tours/6
 Content-Type: application/json
 
 {
