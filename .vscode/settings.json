@@ -15,8 +15,8 @@
     "todohighlight.keywords": [
         {
             "text": "NOTE:",
-            "color": "#ff0000",
-            "backgroundColor": "white",
+            "color": "#ffffff",
+            "backgroundColor": "blue",
             "overviewRulerColor": "grey"
         }
     ]
