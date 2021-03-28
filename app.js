@@ -20,7 +20,13 @@ app.use((req, res, next) => {
   next();
 });
 
-//NOTE: Route Handlers
+const toursRouter = express.Router();
+app.use('/api/v1/tours', toursRouter);
+
+const userRouter = express.Router();
+app.use('/api/v1/users', userRouter);
+
+//NOTE: Route Handlers Or Controllers
 
 const getAllTours = (req, res) => {
   res.status(200).json({
@@ -123,36 +129,36 @@ const deleteTour = (req, res) => {
 const getAllUsers = (req, res) => {
   res.status(500).json({
     status: 'error',
-    message: 'This route is not yet defined'
+    message: 'This route is not yet defined',
   });
 };
 
 const getUser = (req, res) => {
   res.status(500).json({
     status: 'error',
-    message: 'This route is not yet defined'
+    message: 'This route is not yet defined',
   });
 };
 
 const createUser = (req, res) => {
   res.status(500).json({
     status: 'error',
-    message: 'This route is not yet defined'
+    message: 'This route is not yet defined',
   });
 };
 
 const updateUser = (req, res) => {
   res.status(500).json({
     status: 'error',
-    message: 'This route is not yet defined'
-  })
+    message: 'This route is not yet defined',
+  });
 };
 
 const deleteUser = (req, res) => {
   res.status(500).json({
-    status:'error',
-    message: 'This route is not yet defined'
-  })
+    status: 'error',
+    message: 'This route is not yet defined',
+  });
 };
 
 //NOTE: Routes
@@ -163,15 +169,15 @@ const deleteUser = (req, res) => {
 // app.patch('/api/v1/tours/:id', updateTour);
 // app.delete('/api/v1/tours/:id', deleteTour);
 
-app.route('/api/v1/tours').get(getAllTours).post(createTour);
-app
-  .route('/api/v1/tours/:id')
-  .get(getTour)
-  .patch(updateTour)
-  .delete(deleteTour);
+toursRouter.route('/').get(getAllTours).post(createTour);
+toursRouter.route('/:id').get(getTour).patch(updateTour).delete(deleteTour);
 
-app.route('/api/v1/users').get(getAllUsers).post(createUser)
-app.route('/api/v1/users/:id').get(getUser).patch(updateUser).delete(deleteUser)
+userRouter.route('/').get(getAllUsers).post(createUser);
+userRouter
+  .route('/:id')
+  .get(getUser)
+  .patch(updateUser)
+  .delete(deleteUser);
 
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
