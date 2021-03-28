@@ -1,4 +1,4 @@
-GET http://localhost:3000/api/v1/tours/8
+GET http://localhost:3000/api/v1/tours
 
 ###
 POST http://localhost:3000/api/v1/tours
@@ -11,13 +11,17 @@ Content-Type: application/json
 }
 
 ###
-PATCH  http://localhost:3000/api/v1/tours/10
+PATCH  http://localhost:3000/api/v1/tours/9
 Content-Type: application/json
 
 {
-    "name": "test100",
+    "name": "tet",
     "difficulty": "easy"
 }
 
 ###
 DELETE  http://localhost:3000/api/v1/tours/10
+
+
+###
+DELETE  http://localhost:3000/api/v1/users/1

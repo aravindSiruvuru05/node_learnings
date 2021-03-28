@@ -1,0 +1,23 @@
+{
+    "todohighlight.exclude": [
+
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/.vscode/**",
+        "**/.github/**",
+        "**/_output/**",
+        "**/*.min.*",
+        "**/*.map",
+        "**/.next/**"
+    ],
+    "todohighlight.keywords": [
+        {
+            "text": "NOTE:",
+            "color": "#ff0000",
+            "backgroundColor": "white",
+            "overviewRulerColor": "grey"
+        }
+    ]
+}
