@@ -9,7 +9,7 @@ const usersRoutes = require('./routes/userRoutes');
 
 const app = express();
 
-//NOTE: Middlewares 
+//NOTE: Middlewares
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
